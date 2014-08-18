@@ -1,0 +1,21 @@
+<div class="row">
+<div class="col-md-4">
+<div class="list-group">
+<a href="#" class="list-group-item active">
+<h3>Role: <%= @filter.capitalize %></h3>
+</a>
+<p>
+
+  <% @roles.each do |role| %>
+ <% @user = User.find(role.user_id) %>
+<%= link_to "User Name:"+ @user.name, user_path(@user), class: "list-group-item" %>
+
+
+
+
+  <%end%>
+  </div>
+  <%= link_to "Back To List of Users", users_path %>
+</p>
+</div>
+</div>

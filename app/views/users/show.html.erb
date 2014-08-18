@@ -1,0 +1,13 @@
+
+<p id="notice"><%= notice %></p>
+<h3>Name:<%= @user.name %>(<%= link_to 'Edit', edit_user_path(@user) %>) </h3>
+
+
+
+<%= render partial: 'role', collection: @user.roles %>
+
+<%= render partial: 'roles/form' %>
+
+
+<%= link_to 'Back to User List', users_path %>
+

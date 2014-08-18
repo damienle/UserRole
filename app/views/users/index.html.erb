@@ -1,0 +1,53 @@
+<div class="container">
+<h1>USER LIST <%= link_to 'New User', new_user_path, class: "btn btn-primary" , role:  "button" %></h1>
+<h4>Time zone of New York from earthtools.org: <%= @time%></h4>
+<table class="table table-striped">
+  <thead>
+  <div class="row">
+    <tr>
+    <div class="col-md-4">
+      <th>Name</th>
+    </div>
+    <div class="col-md-4">
+      <th>Roles</th>
+     </div>
+     <div class="col-md-4">
+      <th colspan="3"></th>
+    </tr>
+    </div>
+    </div>
+  </thead>
+
+  <tbody>
+  <div class="row">
+    <% @users.each do |user| %>
+      <tr>
+      <div class="col-md-4">
+        <td><p class="text-success"><%= user.name.upcase %></p></td>
+        </div>
+
+        <div class="col-md-4">
+        <td>
+        <% user.roles.each do |role| %>
+        <%= link_to role.name, role_path(role, :filter => role.name.upcase), class: 'btn btn-warning' %>
+
+
+
+        <% end %>
+        </td>
+        </div>
+        <div class="col-md-4">
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+      </tr>
+      </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+</div>
